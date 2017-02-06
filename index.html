@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+
+
+    <title>Web Map Template Fixed Width</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <meta charset=utf-8 />
+        <title>Web Page Template</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Montez|Roboto|Special+Elite" rel="stylesheet"/> <!--Links to Google Fonts> -->
+    <style>
+    a:link {
+        color: #ff0000;
+        text-decoration: none;
+
+
+    }  /*changing hyperlink color*/
+    body {
+      width: 960px; /*change made here*/
+    margin:20px;
+    padding: 20px;
+    background: #f5f5f5;
+    font-family: "Noto Sans", sans-serif;
+    color: #3d3d3d;
+}
+    section {
+        width: 960px;
+        margin: 20px;
+    }
+;
+
+    h1 {
+      width: 960px;
+      margin: 20px auto;
+      font-family: 'Roboto', serif;   /* change made here */
+      letter-spacing: .08em;
+  }
+  h2 {
+      font-family: 'Montez', cursive;   /* change made here */
+      letter-spacing: .04em;
+  }
+  a:link {
+      color: #ff0000;
+      text-decoration: none;
+}
+
+    #map {
+    width: 960px;
+    height: 540px;
+    margin: 10px auto;
+    border: 2px solid #d3d3d3;
+}
+
+    </style>
+</head>
+
+<body>
+
+ <h1>Valencia, Spain</h1>
+<div id='map'></div>
+<section>
+    <h2>about this map</h2>
+    <!-- paragraph and list elements here -->
+</section>
+<p>Valencia, Spain is situated in the  <a href="#">Autonomy</a> of Valecia on the Mediterranean Sea, a few hours south of Barcelona and east of Madrid.  The official languages for Valencia are Valenciano and Castellano. </p>
+<ul>
+    <li>Check out : <a href="https://en.wikipedia.org/wiki/Valencia">Wikipedia</a></li>
+    <li>Soccer fan? Check out: <a href="http://en.valenciacf.com/">Valencia C.F.</a></li>
+    <li>Interested in Culture?  Read about  <a href='http://www.valenciavalencia.com/culture-guide/fallas/about-fallas.htm'>Las Fallas</a>.</li>
+</ul>
+<head>
+    <meta charset=utf-8 />
+    <title>Web Page Template</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+</head>
+	<script>
+	document.querySelector('h1').innerHTML = 'Valencia, Spain';  //Map Title Change
+  var map = document.getElementById('map');
+map.style.background = '#4d4a9f';
+map.addEventListener('click', function() {
+    this.style.width = '400px';
+});
+/*var newListItem = document.createElement('li');
+newListItem.innerHTML = "list item 4";*/   /*don't really want this in my page*/
+/*document.querySelector('ul').appendChild(newListItem);*/
+console.log("hello map");
+var options = {
+    center: [39.46975, -0.37739],
+    zoom: 12
+}
+
+var map = L.map('map', options);
+
+var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+    subdomains: 'abcd',
+    maxZoom: 30
+}).addTo(map);
+
+var message = '¡Amunt València!';
+
+L.marker(map.getCenter())
+    .bindTooltip(message)
+    .addTo(map)
+    .openTooltip();
+
+	</script>
+
+</body>
+
+</html>
